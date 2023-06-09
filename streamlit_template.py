@@ -7,7 +7,7 @@ import os
 #from dotenv import load_dotenv, find_dotenv
 #_ = load_dotenv(find_dotenv()) # read local .env file
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 #openai.api_key  = os.environ['OPENAI_API_KEY']
 #openai_api_key = st.sidebar.text_input('OpenAI API Key')
