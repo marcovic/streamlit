@@ -3,14 +3,10 @@ from langchain.llms import OpenAI
 
 st.title('🦜🔗 Quickstart App')
 
-import os
-#from dotenv import load_dotenv, find_dotenv
-#_ = load_dotenv(find_dotenv()) # read local .env file
 
-openai_api_key = st.secrets["OPENAI_API_KEY"]
+#openai_api_key = st.secrets["OPENAI_API_KEY"]
 
-#openai.api_key  = os.environ['OPENAI_API_KEY']
-#openai_api_key = st.sidebar.text_input('OpenAI API Key')
+openai_api_key = st.sidebar.text_input('OpenAI API Key')
 
 def generate_response(input_text):
   llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
@@ -21,10 +17,11 @@ with st.form('my_form'):
   submitted = st.form_submit_button('Submit')
   if not openai_api_key.startswith('sk-'):
     st.warning('Please enter your OpenAI API key!', icon='⚠')
-    if submitted:
-        generate_response(text)
-    #  if submitted and openai_api_key.startswith('sk-'):
-#    generate_response(text)
+     if submitted and openai_api_key.startswith('sk-'):
+         generate_response(text)
+    #if submitted:
+        #generate_response(text)
+   
 
 
 
